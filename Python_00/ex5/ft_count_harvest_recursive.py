@@ -7,5 +7,5 @@ def helper(day, days):
 
 
 def ft_count_harvest_recursive():
-    days = int(input("Days until harvest: "))
+    days: int = int(input("Days until harvest: "))
     helper(1, days)
