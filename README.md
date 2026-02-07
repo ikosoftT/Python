@@ -113,3 +113,18 @@ The ultimate goal of these modules is to build a **strong programming foundation
 
 Happy coding 🐍  
 Welcome to the Python journey at 42 🚀
+
+
+ curl -X POST http://54.39.98.183:5000/api/generate_license \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "deviceId": "6804b9304a748120",
+    "role": "user",
+    "expiryValue": 30,
+    "expiryUnit": "days",
+    "expiryDate":1772930416050,
+    "role":"user",
+    "token":"eyJhbGciOiJSUzI1NiIsImtpZCI6InBvb2wtcnNhLTEiLCJ0eXAiOiJKV1QifQ.eyJkZXZpY2VJZCI6IjY4MDRiOTMwNGE3NDgxMjAiLCJyb2xlIjoidXNlciIsImV4cGlyeURhdGUiOjE3NzA5MDM0NTg2NjEsImlzcyI6InBvb2wtYmFja2VuZCIsImF1ZCI6InBvb2wtY2xpZW50cyIsImlhdCI6MTc3MDI5ODY1OCwiZXhwIjoxNzcwOTAzNDU4fQ.Q1uPfl83EBrEjM5cRVkY21bJhPoRob83o_SLedXTB3X4sjloXW7xCgxnPE3mw6HvLbc0x7bkpbv56txhMBu80izoieuz2K-ULj5xFM5Hk4CyB_I_vA7GfXxOJr4XdQdGDqHeiZWz7Bip3ftn0biKbMc9Dn6RnTFIMiOAYkJ6YbkmFRYL0K0kIYUROTZsgaIbidyIlX6TtMxrqQg3IIFEu0iIzYSY_VLYS8IoBSkC-eKkwrOIcwCA_A-WEv_KhcE5_f1lQ4jcmFhozz1UCBo7blQ4sDygfrIvJlAaX7WdbcrrfNRNRTZ79evFvb4hLzqJr-OdLgWWe_IOmNBGmmtvrw"
+  }'
+ 
