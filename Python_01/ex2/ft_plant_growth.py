@@ -1,8 +1,8 @@
 class Plant:
-    def __init__(self, name, height, age):
-        self.name = name
-        self.height = height
-        self.Age = age
+    def __init__(self, name: str, height: int, age: int):
+        self.name: str = name
+        self.height: int = height
+        self.Age: int = age
 
     def grow(self):
         self.height += 1
@@ -15,17 +15,12 @@ class Plant:
 
 
 if __name__ == "__main__":
-    plant1 = Plant("Rose", 25, 30)
-    plant2 = Plant("Cactus", 25, 60)
+    plant = Plant("Rose", 25, 30)
     print("=== Day 1 ===")
-    plant1.get_info()
-    plant2.get_info()
+    plant.get_info()
     for i in range(6):
-        plant1.grow()
-        plant2.grow()
-        plant1.age()
-        plant2.age()
+        plant.grow()
+        plant.age()
     print("=== Day 7 ===")
-    plant1.get_info()
-    plant2.get_info()
-    print(f"Growth this Week: +{plant1.height + plant2.height}cm")
+    plant.get_info()
+    print(f"Growth this week: +{i + 1}cm")

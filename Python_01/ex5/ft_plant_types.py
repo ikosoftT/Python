@@ -1,52 +1,68 @@
 class Plant:
-    def __init__(self, name, height, age):
-        self.name = name
-        self.height = height
-        self.age = age
+    def __init__(self, name: str, height: str, age: str):
+        self.name: str = name
+        self.height: int = height
+        self.age: int = age
 
 
 class Flower(Plant):
-    def __init__(self, name, height, age, color):
+    def __init__(self, name: str, height: int, age: int, typ: str, color: str):
         super().__init__(name, height, age)
+        self.typ = typ
         self.color = color
 
-    def bloom(self):
+    def bloom(self) -> None:
         print(f"{self.name} is blooming beautifully!", end="\n\n")
 
 
 class Tree(Plant):
-    def __init__(self, name, height, age, trunk_diameter):
+    def __init__(self, name: str, height: int, age: int, typ: str,
+                 trunk_diameter: str):
+
         super().__init__(name, height, age)
+        self.typ = typ
         self.trunk = trunk_diameter
 
-    def produce_shade(self):
+    def produce_shade(self) -> None:
         print(f"{self.name} provides 78 square meters of shade", end="\n\n")
 
 
 class Vegetable(Plant):
-    def __init__(self, name, height, age, harvest_season, nutritional_value):
+    def __init__(self, name: str, height: int, age: int, typ: str,
+                 harvest_season: str,
+                 nutritional_value: str):
         super().__init__(name, height, age)
-        self.harvest = harvest_season
+        self.typ = typ
+        self.season = harvest_season
         self.value = nutritional_value
+
+    def natural_val(self) -> None:
+        print(f"{self.name} is rich in Vitamin {self.value}")
 
 
 if __name__ == "__main__":
-    print("=== Garden Plant Types ===", end="\n\n")
-    f1 = Flower("Rose", 25, 30, "red color")
-    f2 = Flower("Pito", 13, 90, "green color")
-    print(f"{f1.name} (Flower): {f1.height}cm, {f1.age} days, {f1.color}")
-    f1.bloom()
-    print(f"{f2.name} (Flower): {f2.height}cm, {f2.age} days, {f2.color}")
-    f2.bloom()
-    t1 = Tree("Oak", 500, 1825, "50cm diameter")
-    t2 = Tree("Caliptus", 1400, 2825, "150cm diameter")
-    print(f"{t1.name} (Tree): {t1.height}cm, {t1.age} days, {t1.trunk}")
-    t1.produce_shade()
-    print(f"{t2.name} (Tree): {t2.height}cm, {t2.age} days, {t2.trunk}")
-    t2.produce_shade()
-    m1 = Vegetable("Tomato", 80, 90, "summer harvest", "C")
-    m2 = Vegetable("Carot", 50, 95, "Winter harvest", "B")
-    print(f"{m1.name} (Vegetable): {m1.height}cm, {m1.age} days, {m1.harvest}")
-    print(f"{m1.name} is rich in vitamin {m1.value}", end="\n\n")
-    print(f"{m2.name} (Vegetable): {m2.height}cm, {m2.age} days, {m2.harvest}")
-    print(f"{m2.name} is rich in vitamin {m2.value}")
+    print("=== Garden Plant Types ===")
+    flower = Flower("Rose", 25, 30, "Flower", "red color")
+    flower2 = Flower("lilya", 95, 80, "Flower", "Green color")
+    print(f"{flower.name} ({flower.typ}): {flower.height}cm,",
+          f"{flower.age} days, {flower.color}")
+    print(f"{flower2.name} ({flower2.typ}): {flower2.height}cm,",
+          f"{flower2.age} days, {flower2.color}")
+    flower.bloom()
+    flower2.bloom()
+    tree = Tree("Oak", 500, 1825, "Tree", "50cm diameter")
+    tree2 = Tree("Cactus", 580, 2825, "Tree", "99cm diameter")
+    print(f"{tree.name} ({tree.typ}): {tree.height},",
+          f" {tree.age} days, {tree.trunk}")
+    print(f"{tree2.name} ({tree2.typ}): {tree2.height},",
+          f" {tree2.age} days, {tree2.trunk}")
+    tree.produce_shade()
+    tree2.produce_shade()
+    vegetable = Vegetable("Tomato", 80, 90, "Vegetable", "summer harvest", "C")
+    vegetable2 = Vegetable("Carot", 9, 10, "Vegetable", "Winter harvest", "  B")
+    print(f"{vegetable.name} ({vegetable.typ}): {vegetable.height},",
+          f" {vegetable.age} days, {vegetable.season}")
+    print(f"{vegetable2.name} ({vegetable2.typ}): {vegetable2.height},",
+          f" {vegetable2.age} days, {vegetable2.season}")
+    vegetable.natural_val()
+    vegetable2.natural_val()

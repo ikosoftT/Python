@@ -1,19 +1,18 @@
 class Plant:
-    def __init__(self, name, height, age):
-        self.name = name
-        self.height = height
-        self.age = age
+    def __init__(self, name: str, height: int, age: int):
+        self.name: str = name
+        self.height: int = height
+        self.age: int = age
 
     def get_info(self):
         print(f"{self.name}: {self.height}cm, {self.age} days old")
 
 
 if __name__ == "__main__":
+    data_names: str = ["Rose", "Sunflower", "Cactus"]
+    data_heights: int = [25, 80, 15]
+    data_ages: int = [30, 45, 120]
     print("=== Garden Plant Registry ===")
-    plant_names = ["Rose", "Sunflower", "Cactus"]
-    plant_heights = [25, 80, 15]
-    plant_age = [30, 45, 120]
-
     for i in range(3):
-        plant = Plant(plant_names[i], plant_heights[i], plant_age[i])
+        plant = Plant(data_names[i], data_heights[i], data_ages[i])
         plant.get_info()
