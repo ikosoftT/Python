@@ -1,21 +1,21 @@
 class Plant:
-    def __init__(self, name: str, height: int, age: int):
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name: str = name
         self.height: int = height
         self.Age: int = age
 
-    def grow(self):
+    def grow(self) -> None:
         self.height += 1
 
-    def age(self):
+    def age(self) -> None:
         self.Age += 1
 
-    def get_info(self):
+    def get_info(self) -> None:
         print(f"{self.name}: {self.height}cm, {self.Age} days old")
 
 
 if __name__ == "__main__":
-    plant = Plant("Rose", 25, 30)
+    plant: Plant = Plant("Rose", 25, 30)
     print("=== Day 1 ===")
     plant.get_info()
     for i in range(6):
