@@ -53,11 +53,11 @@ class PrizeFlower(FloweringPlant):
 class Garden:
     def __init__(self, owner: str) -> None:
         self.owner: str = owner
-        self.plants: str = []
+        self.plants: list[Plant] = []
         self.total_growth: int = 0
 
-    def add_plant(self, plant: str) -> None:
-        self.plants.append(plant)
+    def add_plant(self, plant: Plant) -> None:
+        self.plants += [plant]
         print(f"Added {plant.name} to {self.owner}'s garden")
 
     def grow_all(self) -> None:
@@ -77,23 +77,22 @@ class Garden:
 class GardenManager:
 
     def __init__(self) -> None:
-        self.gardens: str = []
+        self.gardens: list[Garden] = []
 
     def add_garden(self, garden) -> None:
-        self.gardens.append(garden)
+        self.gardens += [garden]
 
-    @classmethod
     def create_garden_network(cls):
         return cls()
+    create_garden_network = classmethod(create_garden_network)
 
-    @staticmethod
-    def validate_height(height: int) -> int:
+    def validate_height(height: int) -> bool:
         return height >= 0
+    validate_height = staticmethod(validate_height)
 
     class GardenStats:
 
-        @staticmethod
-        def count_by_type(garden: str) -> int:
+        def count_by_type(garden: str) -> tuple[int, int, int]:
             regular = flowering = prize = 0
             for plant in garden.plants:
                 if plant.get_type() == "regular":
@@ -103,13 +102,14 @@ class GardenManager:
                 elif plant.get_type() == "prize":
                     prize += 1
             return regular, flowering, prize
+        count_by_type = staticmethod(count_by_type)
 
-        @staticmethod
         def calculate_score(garden) -> int:
             total: int = 0
             for plant in garden.plants:
                 total += plant.get_score()
             return total
+        calculate_score = staticmethod(calculate_score)
 
 
 if __name__ == "__main__":
@@ -134,12 +134,12 @@ if __name__ == "__main__":
 
     garden.report()
 
-    types: GardenManager = GardenManager.GardenStats.count_by_type(garden)
+    types = GardenManager.GardenStats.count_by_type(garden)
     print(f"Plant types: {types[0]} regular, {types[1]}", end='')
     print(f" flowering, {types[2]} prize flowers")
 
     print("Height validation test:",
           GardenManager.validate_height(50))
 
-    score: GardenManager = GardenManager.GardenStats.calculate_score(garden)
+    score: int = GardenManager.GardenStats.calculate_score(garden)
     print(f"Garden scores - {garden.owner}: {score}")

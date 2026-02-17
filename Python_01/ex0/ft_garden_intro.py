@@ -1,4 +1,4 @@
-if __name__ == "__main__":
+def ft_garden_intro() -> None:
     name: str = "Rose"
     heaight: int = 25
     age: int = 30
@@ -7,3 +7,7 @@ if __name__ == "__main__":
     print(f"Height: {heaight}cm")
     print(f"Age: {age} days", end="\n\n")
     print("=== End of Program ===")
+
+
+if __name__ == "__main__":
+    ft_garden_intro()

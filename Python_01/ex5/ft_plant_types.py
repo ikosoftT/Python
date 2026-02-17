@@ -1,5 +1,5 @@
 class Plant:
-    def __init__(self, name: str, height: str, age: str) -> None:
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name: str = name
         self.height: int = height
         self.age: int = age
@@ -25,7 +25,8 @@ class Tree(Plant):
         self.trunk: str = trunk_diameter
 
     def produce_shade(self) -> None:
-        print(f"{self.name} provides 78 square meters of shade", end="\n\n")
+        print(f"{self.name} provides {self.height * 3} ", end="")
+        print("square meters of shade", end="\n\n")
 
 
 class Vegetable(Plant):
