@@ -1,26 +1,31 @@
 def check_temperature(temp_str: str) -> int | None:
+    if temp_str is None:
+        raise TypeError("Temperature cannot be None\n")
     try:
         conv = int(temp_str)
     except ValueError:
-        print(f"Error: '{temp_str}' is not a valid number\n")
-    else:
-        if 0 <= conv <= 40:
-            print(f"Temperature {conv}°C is perfect for plants!\n")
-            return conv
-        elif conv > 40:
-            print(f"Error: {conv}°C is too hot for plants (max 40°C)\n")
+        raise ValueError(f"Error: '{temp_str}' is not a valid number\n")
+    if 0 <= conv <= 40:
+        return conv
+    elif conv > 40:
+        raise ValueError(f"Error: {conv}°C is too hot for plants (max 40°C)\n")
+    elif conv < 0:
+        raise ValueError(f"Error: {conv}°C is too cold for plants (min 0°C)\n")
+
+
+def test_temperature_input() -> None:
+    tests = ["25", "abc", "100", "-50"]
+    for i in tests:
+        try:
+            print(f"Testing temperature: {i}")
+            res = check_temperature(i)
+        except (ValueError, TypeError) as e:
+            print(e)
         else:
-            print(f"Error: {conv}°C  is too cold for plants (min 0°C)")
-    return None
-
-
-def test_temperature() -> None:
-    data: list[str] = ["25", "abc", "100", "-50"]
-    for d in data:
-        print(f"Testing temperature: {d}")
-        check_temperature(d)
-    print("\nAll tests completed - program didn't crash")
+            print(f"Temperature {res}°C is perfect for plants!\n")
+    print("All tests completed - program didn't crash!")
 
 
 if __name__ == "__main__":
-    test_temperature()
+    print("=== Garden Temperature Checker ===\n")
+    test_temperature_input()

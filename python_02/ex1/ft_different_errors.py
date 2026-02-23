@@ -37,10 +37,11 @@ def test_error_types() -> None:
     try:
         garden_operations("KeyError")
         garden_operations("ValueError")
-    except Exception:
+    except (ValueError, KeyError):
         print("Caught an error, but program continues!\n")
 
 
 if __name__ == "__main__":
+    print("=== Garden Error Types Demo ===\n")
     test_error_types()
     print("All error types tested successfully!")

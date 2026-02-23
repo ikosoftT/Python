@@ -19,7 +19,7 @@ def test_water() -> None:
 
 
 class GardenManager:
-    def __init__(self):
+    def __init__(self) -> None:
         self.plants: list[str] = []
 
     def add_plant(self, plant_name: str) -> None:
@@ -71,7 +71,7 @@ def test_garden_management() -> None:
 
     print("Adding plants to garden...")
     try:
-        garden.add_plant("tomato")
+        garden.add_plant(None)
         garden.add_plant("lettuce")
         garden.add_plant("")
     except PlantError as e:
@@ -86,7 +86,7 @@ def test_garden_management() -> None:
     try:
         print(garden.check_plant_health("tomato", 5, 8))
         garden.check_plant_health("lettuce", 15, 8)
-    except ValueError as e:
+    except (ValueError, PlantError) as e:
         print(f"Error checking lettuce: {e}\n")
     print("Testing error recovery...")
     try:
