@@ -43,5 +43,8 @@ def test_error_types() -> None:
 
 if __name__ == "__main__":
     print("=== Garden Error Types Demo ===\n")
-    test_error_types()
+    try:
+        test_error_types()
+    except Exception as e:
+        print(e)
     print("All error types tested successfully!")

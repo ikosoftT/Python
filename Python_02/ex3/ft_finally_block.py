@@ -23,5 +23,8 @@ def test_watering_system() -> None:
 
 if __name__ == "__main__":
     print("=== Garden Watering System ==\n")
-    test_watering_system()
+    try:
+        test_watering_system()
+    except Exception as e:
+        print(e)
     print("\nCleanup always happens, even with errors!")

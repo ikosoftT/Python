@@ -48,4 +48,7 @@ def test_plant_check() -> None:
 
 if __name__ == "__main__":
     print("=== Garden Plant Health Checker ===\n")
-    test_plant_check()
+    try:
+        test_plant_check()
+    except Exception as e:
+        print(e)

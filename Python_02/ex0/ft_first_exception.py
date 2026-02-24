@@ -28,4 +28,7 @@ def test_temperature_input() -> None:
 
 if __name__ == "__main__":
     print("=== Garden Temperature Checker ===\n")
-    test_temperature_input()
+    try:
+        test_temperature_input()
+    except Exception as e:
+        print(e)
