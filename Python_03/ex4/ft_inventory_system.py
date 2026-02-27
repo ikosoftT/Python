@@ -2,7 +2,7 @@ import sys
 
 
 def parsing_data() -> dict:
-    if len(sys.argv) <= 1:
+    if len(sys.argv) < 2:
         raise ValueError("No Arguments Provided!")
     colon: int = -1
     data = {}
