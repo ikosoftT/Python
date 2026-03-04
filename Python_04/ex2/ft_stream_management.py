@@ -11,7 +11,7 @@ def main() -> None:
 
     sys.stdout.write(
         f"\n[STANDARD] Archive status from {arch_id}: {status_report}\n")
-    sys.stderr.write(f"[ALERT] System diagnostic: {success_msg}\n")
+    print(f"[ALERT] System diagnostic: {success_msg}\n", file=sys.stderr)
     sys.stdout.write("[STANDARD] Data transmission complete\n")
 
     print("\nThree-channel communication test successful.")
