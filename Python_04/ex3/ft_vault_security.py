@@ -1,8 +1,8 @@
 def main() -> None:
     print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===\n")
-    file_secure_protocol = "../security_protocols.txt"
-    file_name = "../classified_data.txt"
-    file_secure_protocol_content = None
+    file_secure_protocol = "security_protocols.txt"
+    secure_data = None
+    file_name = "classified_data.txt"
     file_content = None
     try:
         with open(file_name, 'r') as file_obj:
@@ -17,13 +17,15 @@ def main() -> None:
         print(file_content)
     try:
         with open(file_secure_protocol, 'r') as f:
-            file_secure_protocol_content = f.read()
+            secure_data = f.read()
+        with open(file_secure_protocol, 'w') as file:
+            file.write(secure_data)
     except FileNotFoundError:
         raise FileNotFoundError(
             "ERROR: Storage vault not found. Run data generator first.")
-    if file_secure_protocol_content:
+    if secure_data:
         print("\nSECURE PRESERVATION:")
-        print(file_secure_protocol_content)
+        print(secure_data)
         print("Vault automatically sealed upon completion")
     print("\nAll vault operations completed with maximum security.")
 
@@ -32,4 +34,4 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(e)
+        print("ERROR:", e)
